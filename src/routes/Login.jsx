@@ -24,13 +24,13 @@ function Login() {
           setErrorUser("User data is invalid");
         }
       });
-  }, [email, password, userContext]);
+  }, [email, navigate, password, userContext]);
 
   useEffect(() => {
     if (userContext.user?.email) {
       navigate("/about");
     }
-  }, [userContext.user, navigate]);
+  }, [navigate, userContext.user]);
 
   return (
     <>
