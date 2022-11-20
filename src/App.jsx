@@ -7,7 +7,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import UserContextPtovider from "./components/userContext";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import Register from "./routes/Register";
-import NoteEdit, { loader as NoteEditLoader } from "./routes/NoteEdit";
+import NoteEdit from "./routes/NoteEdit";
 import ErrorPage from "./routes/ErrorPage";
 
 const router = createBrowserRouter([
@@ -29,13 +29,12 @@ const router = createBrowserRouter([
         element: <Notes />,
       },
       {
-        path: `/edit`,
-        element: <NoteEdit />,
+        path: "/create",
+        element: <CreateNote />,
       },
       {
-        path: "/create",
-        loader: NoteEditLoader,
-        element: <CreateNote />,
+        path: "/notes/:id/edit",
+        element: <NoteEdit />,
       },
       {
         path: "*",
