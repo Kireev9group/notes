@@ -4,9 +4,8 @@ import { useUserContext } from "../components/userContext";
 function CreateNote() {
   const navigate = useNavigate();
 
-  const user = useUserContext();
+  const { user } = useUserContext();
 
-  const arrUser = [user];
   const [title, setTitle] = useState("");
   const handleSetTitle = useCallback((e) => setTitle(e.target.value), []);
 
@@ -17,7 +16,7 @@ function CreateNote() {
     const note = {
       title: title,
       body: body,
-      userId: arrUser[0].user.id,
+      userId: user.id,
       createdAt: new Date().toLocaleString(),
     };
 
