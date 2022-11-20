@@ -13,7 +13,7 @@ export default function Layout() {
       <div className="p-2">
         <header className=" flex gap-1 justify-between mb-5">
           <div>Hello, {arrUser[0].user.email}</div>
-          <NavLink className="mt-2" to="/about" end={true}>
+          <NavLink to="/about" end={true}>
             About
           </NavLink>
           <NavLink to="/notes" end={true}>
