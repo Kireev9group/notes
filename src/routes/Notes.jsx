@@ -55,7 +55,7 @@ function Notes() {
             <button onClick={() => handleDelete(note.id)}>
               <img className="w-4" alt="icon" src={icon2} />
             </button>
-            <Link to="/edit">
+            <Link to={`/notes/${note.id}/edit`}>
               <img className="w-4" alt="icon" src={icon1} />
             </Link>
           </div>
