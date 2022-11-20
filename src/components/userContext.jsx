@@ -1,10 +1,5 @@
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useMemo,
-  useState,
-} from "react";
+mport { useMemo, useState } from "react";
+import { useContext, createContext } from "react";
 
 const UserContext = createContext({
   user: {},
@@ -18,18 +13,17 @@ export const useUserContext = () => {
 function UserContextProvider({ children }) {
   const [user, setUser] = useState(() => {
     try {
-      console.log(user);
       return JSON.parse(localStorage.getItem("user"));
     } catch (e) {
       return {};
     }
   });
 
-  const handleSetUser = useCallback((user) => {
+  const handleSetUser = (user) => {
     const userString = JSON.stringify(user);
     localStorage.setItem("user", userString);
     setUser(user);
-  }, []);
+  };
 
   const value = useMemo(
     () => ({ user, setUser: handleSetUser }),
